@@ -33,6 +33,9 @@ window.addEventListener('load', () => {
     duration: 2,
     ease: "power2.out"
   });
+
+  // Force ScrollTrigger to refresh its positions after the page is fully loaded
+  ScrollTrigger.refresh();
 });
 
 // Scroll Animations
