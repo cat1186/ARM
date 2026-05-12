@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cake Box Sizes | ARM ENTERPRISES</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Liquid Background -->
+    <div class="liquid-bg-container">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none;">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+
+    <header class="site-header">
+      <button class="back-button" type="button" onclick="history.back()">Back</button>
+      <a class="brand" href="index.html" aria-label="ARM ENTERPRISES home">
+        <span>ARM ENTERPRISES</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="total-items.html">Catalog</a>
+        <a href="items-available.html">Carry Bags</a>
+        <a href="medical-paper.html">Medical Paper</a>
+      </nav>
+      <a class="nav-action" href="total-items.html">All items</a>
+    </header>
+
+    <main>
+      <section class="items-hero" style="display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+        <div style="flex: 1;">
+          <p class="eyebrow">Cake Box</p>
+          <h1>Available sizes</h1>
+          <p>Select cake box size and add quantity before sending to cart. Premium packaging for your bakery creations.</p>
+        </div>
+        <div style="flex: 1; max-width: 400px;">
+          <img src="assets/cake.png" alt="Cake Boxes" style="width: 100%; border-radius: 24px; box-shadow: var(--shadow);">
+        </div>
+      </section>
+
+      <section class="section size-section">
+        <div class="section-heading">
+          <p class="eyebrow">Size list</p>
+          <h2>Cake box sizes.</h2>
+        </div>
+        <div class="cart-toolbar">
+          <button class="cart-action" type="button" data-add-selected>Add to cart</button>
+          <a class="cart-link" href="payments.html">Cart / Payment</a>
+          <p class="cart-feedback" role="status" aria-live="polite"></p>
+        </div>
+ <div class="size-list selectable-sizes" data-gsm="Cake Box" data-unit="qty">
+
+   <div class="size-card">
+     <img src="assets/cake.png" class="size-img" alt="Cake Box">
+     <h3>8*8*8</h3>
+
+     <button type="button" data-size="8*8*8 Half Kg" data-price="10">
+       Half Kg - â‚¹10
+     </button>
+
+     <button type="button" data-size="8*8*8 1 Kg" data-price="12">
+       1 Kg - â‚¹12
+     </button>
+
+     <div class="quantity-control">
+  <span>Quantity</span>
+  <button class="minus">-</button>
+  <span class="qty">0</span>
+  <button class="plus">+</button>
+</div>
+
+
+  </div>
+
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>ARM ENTERPRISES</h4>
+          <p>Retail, food, and custom packaging manufacturing.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <address>
+            3/296B, Pottalkulam Road, Azhagappapuram,<br>
+            Kanyakumari - 629401.<br>
+            GSTIN: 33ABOFA4660R1ZU
+          </address>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p>arm.eprises@gmail.com<br>+91 9655440644</p>
+        </div>
+      </div>
+      <p style="margin-top: 40px; opacity: 0.5; font-size: 0.8rem;">Â© 2024 ARM ENTERPRISES. All rights reserved.</p>
+    </footer>
+    <script type="module" src="cart.js"></script>
+  </body>
+</html>
