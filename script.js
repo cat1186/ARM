@@ -43,27 +43,34 @@ gsap.utils.toArray('.section-heading').forEach(heading => {
   gsap.from(heading, {
     scrollTrigger: {
       trigger: heading,
-      start: "top 80%",
+      start: "top 90%",
+      toggleActions: "play none none none",
     },
-    y: 50,
+    y: 30,
     opacity: 0,
     duration: 1,
     ease: "power3.out"
   });
 });
 
-gsap.utils.toArray('.product-card, .item-option, article').forEach(card => {
-  gsap.from(card, {
-    scrollTrigger: {
-      trigger: card,
-      start: "top 85%",
-    },
-    y: 30,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.out",
-    stagger: 0.1
-  });
+// Grouped animations for better performance and visibility
+const itemContainers = ['.items-options', '.timeline', '.quality-list'];
+itemContainers.forEach(container => {
+  const elements = document.querySelector(container)?.children;
+  if (elements && elements.length > 0) {
+    gsap.from(elements, {
+      scrollTrigger: {
+        trigger: container,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power2.out"
+    });
+  }
 });
 
 // Form Logic
