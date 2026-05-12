@@ -263,18 +263,28 @@ function renderBill() {
 
 renderBill();
 function sendToWhatsApp() {
-  let name = document.getElementById("custName").value;
-  let phoneInput = document.getElementById("custPhone").value;
-  let address = document.getElementById("custAddress").value;
+  const name = document.getElementById("custName")?.value || "";
+  const phoneInput = document.getElementById("custPhone")?.value || "";
+  const address = document.getElementById("custAddress")?.value || "";
 
   const params = new URLSearchParams(window.location.search);
-  const cartData = params.get("cart");
-  if (!cartData) {
-    alert("Cart is empty!");
-    return;
+  const urlCart = params.get("cart");
+  let cart = [];
+
+  if (urlCart) {
+    try {
+      cart = JSON.parse(urlCart);
+    } catch (e) {
+      cart = getCart();
+    }
+  } else {
+    cart = getCart();
   }
 
-  let cart = JSON.parse(cartData);
+  if (!cart || cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
 
 let message = `Hello, I want to order:
 
@@ -299,3 +309,6 @@ Address: ${address}
 
   window.open(url, "_blank");
 }
+
+// Make it globally accessible for the onclick handler
+window.sendToWhatsApp = sendToWhatsApp;
